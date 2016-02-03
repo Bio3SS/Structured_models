@@ -17,6 +17,12 @@ include stuff.mk
 
 ## Content
 
+Sources += $(wildcard *.R *.ssv)
+
+dandy.Rout: funs.Rout
+salmon.Rout: salmon.ssv funs.Rout
+squirrels.Rout: squirrels.ssv funs.Rout
+
 ######################################################################
 
 ### Makestuff
@@ -27,5 +33,5 @@ include stuff.mk
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 
-# -include $(ms)/wrapR.mk
+-include $(ms)/wrapR.mk
 # -include $(ms)/oldlatex.mk
