@@ -1,4 +1,6 @@
-commit.txt
+commit.time
+target.mk
+
 .*.sw*
 
 *.pdf
