@@ -1,18 +1,19 @@
 # Structured_models
-### Hooks for the editor to set the default target
+# Not much of a repo, is it. Maybe more old-fashioned than Life_tables?
+
 current: target
--include $(ms)/target.mk
+-include target.mk
 
-##################################################################
+# -include makestuff/perl.def
 
+######################################################################
 
-# make files
+# Content
 
-Sources = Makefile .ignore README.md sub.mk LICENSE.md
-include sub.mk
-# include $(ms)/perl.def
+vim_session:
+	bash -cl "vmt"
 
-##################################################################
+######################################################################
 
 ## Content
 
@@ -26,11 +27,19 @@ squirrels.Rout: squirrels.ssv funs.Rout
 
 ### Makestuff
 
-## Change this name to download a new version of the makestuff directory
-# Makefile: start.makestuff
+Sources += Makefile
 
--include $(ms)/git.mk
--include $(ms)/visual.mk
+Ignore += makestuff
+msrepo = https://github.com/dushoff
+Makefile: makestuff/Makefile
+makestuff/Makefile:
+	git clone $(msrepo)/makestuff
+	ls $@
 
--include $(ms)/wrapR.mk
-# -include $(ms)/oldlatex.mk
+-include makestuff/os.mk
+
+-include makestuff/wrapR.mk
+
+-include makestuff/git.mk
+-include makestuff/visual.mk
+-include makestuff/projdir.mk
